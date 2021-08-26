@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+.footer_parent{
+   
+   width: 100vw;
+   height: 30vh;
+   background-color: #216653;
+   position: relative;
+   bottom: 0;
+   left: 0;
+   right: 0;
+}
+.footer_child{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer_child_part{
+    color: #fff;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.footer_child_part_heading{
+    color: #ffffff;
+    font-size: 1.4em;
+    font-family: 'Roboto', sans-serif;
+}
+ a{
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #111414;
+}
+a:hover{
+    text-decoration: underline;
+
+}

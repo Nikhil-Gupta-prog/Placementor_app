@@ -1,0 +1,84 @@
+.signIn_parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.signIn_child{
+    width: 30vw;
+    height: auto;
+    border: 1px solid #216e58;
+    
+}
+.signIn_heading{
+    font-size: 1.7em;
+    font-family: sans-serif;
+    font-weight: 400;
+    text-align: center;
+    color:#216653;
+    margin: 1em;
+}
+
+.signIn_InputBlock{
+    padding: 1em;
+}
+.signIn_InputBlock label{
+    font-size: 1.4em;
+    color: #216653;
+    font-family: sans-serif;
+}
+.signIn_InputBlock input{
+    width: 100%;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+.signIn_action{
+    margin-bottom:20px;
+    padding: 1em;
+}
+.signIn_action button{
+    width: 140px;
+    padding: 5px 7px;
+    background: transparent;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    border: 1px solid #216e58;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 10px 12px #216653;
+    
+}
+.signIn_action button:hover{
+    box-shadow: inset 400px 0 0 0 #216653;
+    color: #fff;
+}
+
+@media screen and (max-width:430px){
+    .signIn_child{
+        width: 90vw;
+        height: auto;
+       
+        
+    }
+    .signIn_heading{
+        font-size: 1.4em;
+        font-family: sans-serif;
+        font-weight: 400;
+        text-align: center;
+        color:#216653;
+        margin: 1em;
+    }
+    
+}
+
+@media screen and (max-width:770px){
+    .signIn_child{
+        width: 57vw;
+        height: auto;
+       
+        
+    }
+}
