@@ -1,25 +1,80 @@
-import React,{useState} from "react";
+import React, { useState , useEffect} from "react";
 import "./SignIn.css";
+
+
+
+
 const SignIn = () => {
-    const [emailChangeHandler, setemailChangeHandler] = useState('');
-    const [passwordChangeHandler,setPasswordChangeHandler]= useState('');
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
+  const [emailIsTouched, setEmailIsTouched] = useState(false)
+  const [passwordIsTouched, setPasswordIsTouched] = useState(false)
+
+
+  const emailChangeHandler = (e) =>{
+    setEnteredEmail(e.target.value);
+  }
+  const passwordChangeHandler = (e)=>{
+    setEnteredPassword(e.target.value);
+  }
+  const emailInputBlurHandler = () =>{
+    setEmailIsTouched(true);
+  }
+  const passwordInputBlurHandler = () =>{
+    setPasswordIsTouched(true);
+  }
+
+  const emailIsValid = enteredEmail.includes('@')  ;
+  const passwordIsValid = enteredPassword.length >=4;
+
+
+ 
+
+  const submitHandler = (e) =>{
+    e.preventDefault();
+   
+    console.log(enteredEmail,enteredPassword);
+    setEnteredEmail('');
+    setEnteredPassword('');
+  }
+
   return (
     <div className="signIn_parent">
       <div className="signIn_child">
-        <form>
-            <p className="signIn_heading">Login Here</p>
+        <div></div>
+        <div>
+        <form onSubmit={submitHandler}>
+          <p className="signIn_heading">Login Here</p>
           <div className="signIn_InputBlock">
             <label htmlFor="email">Email</label>
-            <input id="email" type="email" onChange={emailChangeHandler} />
+            <input
+              id="email"
+              type="email"
+              value={enteredEmail}
+              onChange={emailChangeHandler}
+              onBlur={emailInputBlurHandler}
+
+            />
+            {!emailIsValid && <p>Please enter your email</p>}
+           
           </div>
           <div className="signIn_InputBlock">
             <label htmlFor="password">Passowrd</label>
-            <input id="password" type="password" onChange={passwordChangeHandler} />
+            <input
+              id="password"
+              type="password"
+              value={enteredPassword}
+              onChange={passwordChangeHandler}
+              onBlur={passwordInputBlurHandler}
+            />
+            {!passwordIsValid && <p>Please enter your password</p>}
+
           </div>
           <div className="signIn_action">
-          <button >Login</button>
+            <button>Login</button>
           </div>
         </form>
+        </div>
       </div>
     </div>
   );

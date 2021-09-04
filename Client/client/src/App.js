@@ -5,6 +5,9 @@ import SignUpPage from "./Pages/SignUpPage";
 import SignInPage from "./Pages/SignInPage";
 import FormPage from "./Pages/FormPage";
 import Layout from "./Components/Layout/Layout";
+import BookPage from "./Pages/BookPage";
+import ProfilePage from "./Pages/ProfilePage";
+
 
 function App() {
   return (
@@ -22,6 +25,12 @@ function App() {
         </Route>
         <Route path="/form" exact>
             <FormPage />
+        </Route>
+        <Route path="/book" exact>
+            <BookPage />
+        </Route>
+        <Route path="/profile" exact>
+            <ProfilePage />
         </Route>
       </Switch>
       </Layout>

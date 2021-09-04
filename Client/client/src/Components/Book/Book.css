@@ -1,0 +1,18 @@
+.parent_Book{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.child_Book{
+    width: 20vw;
+    height: 30vh;
+    border: 1px solid;
+    box-shadow: 0 2px 2px ;
+    border-radius: 18px 0  18px 0;
+    
+}

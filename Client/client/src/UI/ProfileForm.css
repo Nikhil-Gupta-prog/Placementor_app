@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,900&display=swap');
+
+
+.profileForm_Parent{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.profileForm_heading_div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+
+}
+.profileForm_heading{
+  font-size: 1.5em;
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+ 
+}
+.profileForm_child{
+  display: flex ;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+
+}
+
+.profile_input_block{
+  flex: 1;
+  padding: 10px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  
+}
+
+.profile_input_block label{
+  font-size: 1.1;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+
+}
+.profile_input_block input{
+  
+  border: 1px solid #000;
+  min-height:22px;
+}
+
+.profileForm_action_div{
+  display:flex ;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0;
+}
+
+.profileForm_action_button{
+  margin: 1em;
+  background: transparent;
+  font-size: 1.2em;
+  padding: 2px 17px;
+  border-radius: 24px;
+  font-family: 'Poppins', sans-serif;
+
+  cursor: pointer;
+  border: 2px solid #226d59;
+
+}
+.profileForm_action_button:hover{
+    color: #ffffff;
+    background-color: #226d59;
+}
+.profileForm_close_button{
+  margin: 1em;
+  background: transparent;
+  font-size: 1.2em;
+  padding: 2px 17px;
+  border: 2px solid #226d59;
+  border-radius: 24px;
+  font-family: 'Poppins', sans-serif;
+  
+  cursor: pointer;
+
+}
+.profileForm_close_button:hover{
+  color: #ffffff;
+  background-color: #752525;
+}
