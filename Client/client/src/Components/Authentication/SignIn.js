@@ -4,31 +4,43 @@ import "./SignIn.css";
 const SignIn = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
-  const [emailIsTouched, setEmailIsTouched] = useState(false);
-  const [passwordIsTouched, setPasswordIsTouched] = useState(false);
+  const [enterEmailIsTouched, setEnterEmailIsTouched] = useState(false);
+  const [enterPasswordIsTouched, setEnterPasswordIsTouched] = useState(false);
+
+
+  const enteredEmailIsValid = enteredEmail.trim() !== '';
+  const emailInputIsInvalid = !enteredEmailIsValid && enterEmailIsTouched;
+
+  const enteredPasswordIsValid = enteredPassword.trim() !== '';
+  const passwordInputIsInvalid = !enteredPasswordIsValid && enterPasswordIsTouched;
 
   const emailChangeHandler = (e) => {
     setEnteredEmail(e.target.value);
   };
+  const emailInputBlurHandler = () => {
+    setEnterEmailIsTouched(true);
+  };
   const passwordChangeHandler = (e) => {
     setEnteredPassword(e.target.value);
   };
-  const emailInputBlurHandler = () => {
-    setEmailIsTouched(true);
-  };
+  
   const passwordInputBlurHandler = () => {
-    setPasswordIsTouched(true);
+    setEnterPasswordIsTouched(true);
   };
 
-  const emailIsValid = enteredEmail.includes("@");
-  const passwordIsValid = enteredPassword.length >= 4;
 
   const submitHandler = (e) => {
     e.preventDefault();
-
+    setEnterEmailIsTouched(true);
+    setEnterPasswordIsTouched(true);
+    if (!enteredEmailIsValid && !enteredPasswordIsValid) {
+      return;
+    }
     console.log(enteredEmail, enteredPassword);
     setEnteredEmail("");
     setEnteredPassword("");
+    setEnterEmailIsTouched(false);
+    setEnterPasswordIsTouched(false);
   };
 
   return (
@@ -50,7 +62,7 @@ const SignIn = () => {
                 onChange={emailChangeHandler}
                 onBlur={emailInputBlurHandler}
               />
-              {!emailIsValid && <p>Please enter your email</p>}
+              {emailInputIsInvalid && <p>Please enter your email</p>}
             </div>
             <div className="signIn_InputBlock">
               <label htmlFor="password">Passowrd</label>
@@ -61,7 +73,7 @@ const SignIn = () => {
                 onChange={passwordChangeHandler}
                 onBlur={passwordInputBlurHandler}
               />
-              {!passwordIsValid && <p>Please enter your password</p>}
+              {passwordInputIsInvalid && <p>Please enter your password</p>}
             </div>
             <div className="signIn_action">
               <button>Login</button>
