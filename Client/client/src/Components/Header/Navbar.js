@@ -1,6 +1,8 @@
 import React,{useState} from "react";
 import "./Navbar.css";
 import {Link} from "react-router-dom";
+import { FaBars } from 'react-icons/fa';
+import { IconContext } from "react-icons";
 
 const Navbar = () => {
   const [navResponse, setNavResponse] = useState(false);
@@ -8,13 +10,13 @@ const Navbar = () => {
     setNavResponse((prevState)=>!prevState);
   }
   return (
+   
     <nav className="parent_nav">
-      <div>
-          <h1 className="nav_logo" >Placementor</h1>
+      <div> <h1 className="nav_logo" >PlaceMentor</h1>
+
       </div>
-      <nav className={navResponse?"nav_main active":"nav_main"}>
-        <div className="hamburger_icon" onClick={navToggleHandler}>Nikhil</div>
-        <ul className="parent_nav_list">
+      <div>
+      <ul className={navResponse ?"parent_nav_list_mobileview":"parent_nav_list "}>
           <li>
             <Link to ="/">Home</Link>
           </li>
@@ -38,7 +40,17 @@ const Navbar = () => {
             <Link to ="/profile">Profile</Link>
           </li>
         </ul>
-      </nav>
+      </div>
+      <div className="hamburger_icon" onClick={navToggleHandler}>
+      <IconContext.Provider
+      value={{ color: '#2d866d', size: '30px' }}
+    >
+      <div>
+        <FaBars />
+      </div>
+    </IconContext.Provider>
+        </div>
+ 
     </nav>
   );
 };
