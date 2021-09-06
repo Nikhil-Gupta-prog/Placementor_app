@@ -1,141 +1,84 @@
-/* .main_home{
-    background: rgb(2,0,36);
-    background: radial-gradient(circle, rgba(2,0,36,1) 3%, #0a0a73 44%, rgba(39,110,125,1) 95%);
-} */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,900&display=swap");
+
 
 .home {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
+  background-color: #eeeeee;
+  clip-path: polygon(0 0, 100% 0%, 100% 92%, 0% 100%);
 }
 
 .home_title {
   display: flex;
   flex-direction: column;
-  margin-left: 70px;
-  color: #125240;
+ 
 }
-.home_title h4 {
+.home_title h3 {
   font-size: 1.3em;
   color: #125240;
-  font-family: sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }
 .home_title_name {
   font-size: 4em;
-  font-family: sans-serif;
-  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
   color: #216653;
-  z-index: 2;
+  letter-spacing: 4px;
 }
 
-.home_subtitle {
-  color: #690b0b;
-  font-size: 2em;
-  font-family: monospace;
-  font-weight: 600;
-  text-align: center;
-}
 .image_block {
   width: 40vw;
+  margin-bottom: 110px;
 }
 .home_image {
-  width: 90%;
-  height: 100%;
+  width: 120%;
 }
 .button_block {
-  margin: 1.4em;
+  margin: 1em;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  flex-direction: column;
-}
-.register_button {
-  font-size: 1.2em;
-
-  font-weight: bold;
-  border-radius: 20px;
-}
-
-.button_slide {
-  color: #3e927a;
-  border: 1px solid #216653;
-  background: transparent;
-  border-radius: 20px;
-  padding: 10px 16px;
-  display: inline-block;
-  font-family: Georgia, "Times New Roman", Times, serif;
-
-  cursor: pointer;
-
-  -webkit-transition: ease-out 0.4s;
-  -moz-transition: ease-out 0.4s;
-  transition: ease-out 0.4s;
-}
-
-.slide_right:hover {
-  box-shadow: inset 400px 0 0 0 #216653;
-  color: #fff;
-}
-.home_login_block {
-  display: flex;
-  flex-direction: row;
-  margin-top: 10px;
-  font-size: 1.3em;
-}
-.home_login_block a {
-  color: #000;
-}
-.home_login_block a:hover {
-  color: #690b0b;
-}
-
-@media screen and (max-width: 490px) {
-  .home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-  }
-
-  .home_title h4 {
-    font-size: 1em;
-  }
-  .home_title_name {
-    font-size: 2em;
-    font-family: sans-serif;
-    font-weight: 400;
-    color: #216653;
-  }
   
+}
+.home_register_button{
+  background: transparent;
+  padding: 4px 9px;
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  border: 2px solid #125240;
+  border-radius: 20px;
+  margin-right: 20px;
+  text-decoration: none;
+}
+.home_register_button:hover{
+  background-color: #125240;
+  color: #fff;
+  
+}
 
-  .home_subtitle {
-    color: #690b0b;
-    font-size: 1em;
-    font-family: monospace;
-    font-weight: 200;
-    text-align: center;
-  }
-  .image_block {
-    display: none;
-  }
+.home_login_button{
+  background: transparent;
+  padding: 4px 17px;
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  border: 2px solid #125240;
+  border-radius: 20px;
+  margin-right: 20px;
+  text-decoration: none;
 
-  .button_block {
-    margin: 1em;
-  }
-  .register_button {
-    font-size: 1em;
-  }
-
-  .button_slide {
-    border-radius: 10px;
-    padding: 7px 13px;
-  }
-
-  .home_login_block {
-    margin-top: 10px;
-    font-size: 1em;
-    margin-left: -16px;
-  }
+}
+.home_login_button:hover{
+  background-color: #125240;
+  color: #fff;
+  
+}
+@media screen and (max-width: 490px) {
+  
+  
 }

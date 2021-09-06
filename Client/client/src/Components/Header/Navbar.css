@@ -1,77 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,900&display=swap");
 
-.parent_nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    height: 10vh;
-    box-shadow: 0 2px 14px;
-    
+.parent_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  height: 10vh;
+  box-shadow: 0 2px 14px;
 }
-.parent_nav_list{
-    display: flex;
-
+.parent_nav_list {
+  display: flex;
 }
-.hamburger_icon{
-    display: none;
+.hamburger_icon {
+  display: none;
 }
 
 ul li {
-    list-style: none;
+  list-style: none;
 }
-ul li a{
-    margin: 10px;
-    font-size: 1em;
-    color: #2d866d;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    text-decoration: none;
-
+ul li a {
+  margin: 10px;
+  font-size: 1em;
+  color: #2d866d;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
 }
-.nav_logo{
-    margin: 4px 0 0 18px;
-    color: #2d866d;
-    font-size: 1.4em;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    
+.nav_logo {
+  margin: 4px 0 0 18px;
+  color: #2d866d;
+  font-size: 1.4em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
 }
-
 
 @media screen and (max-width: 429px) {
-    .hamburger_icon{
-        display:block;
-    }
-   .parent_nav_list{
-     display: none;
-   }
-   .parent_nav_list_mobileview{
-    position:fixed;
+  .hamburger_icon {
+    display: block;
+  }
+  .parent_nav_list {
+    display: none;
+  }
+  .parent_nav_list_mobileview {
+    position: fixed;
     top: 63.4px;
     left: 0;
     background-color: #2d866d;
     height: 60vh;
-    width:100%;
+    width: 100%;
     display: block;
     text-align: center;
     z-index: 4;
     transition: all 0.3s ease;
-   }
-   nav ul li{
-        margin: 14px 0;
-   }
-   nav ul li a:hover{
-       background-color: #fff;
-       color: #2d866d;
-
-   }
-   nav ul li a{
+  }
+  nav ul li {
+    margin: 14px 0;
+  }
+  nav ul li a:hover {
+    background-color: #fff;
+    color: #2d866d;
+  }
+  nav ul li a {
     color: #fff;
     font-size: 1.3em;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
+  }
 }
-}
-
