@@ -1,128 +1,250 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,900&display=swap");
 
-.parent_profile{
+.parent_profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  background-color: #fff;
+}
+
+.child_profile {
+  width: 70vw;
+  height: 70vh;
+  border: 1px solid #1c5847;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-radius: 9px;
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.089);
+  padding: 10px;
+}
+.child_profile_part1 {
+  width: 30vw;
+  height: 50h;
+}
+.profile_image {
+  width: 100%;
+  height: 100%;
+}
+.child_profile_part2 {
+  height: auto;
+}
+.child_profile_part2_name {
+  font-size: 1.4em;
+  font-family: "Poppins", sans-serif;
+}
+.child_profile_part2_title {
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  color: #1c5847;
+}
+
+.profile_action {
+  background-color: #226d59;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  border-radius: 20px;
+  padding: 4px 9px;
+  border: none;
+  cursor: pointer;
+}
+.profile_action:focus {
+  font-weight: 900;
+}
+
+.cp {
+  width: 50%;
+  flex-direction: column;
+}
+.cp_1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cp_2 {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.profile_details_block {
+  display: flex;
+  justify-content: space-between;
+  margin: 7px;
+}
+.profile_details_block label {
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  color: #1c5847;
+}
+.profile_details_block p {
+  font-size: 0.7em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  margin-top: 4px;
+}
+.profile_logout_div {
+  margin: 5px;
+}
+.profile_logout {
+  background-color: #b91515;
+
+  padding: 4px 14px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.modal {
+  position: fixed;
+  top: 7vh;
+  left: 5%;
+  width: 50%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 40rem;
+    left: calc(50% - 20rem);
+  }
+
+  .child_profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    width: 100vw;
+    margin: 20px 0;
+  }
+  .cp {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vh;
-    background-color: #fff ;
-}
+  }
 
-.child_profile{
-    width: 70vw;
-    height: 70vh;
-    border: 1px solid #1c5847;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    border-radius: 9px;
-    background: #ffffff;
-    box-shadow: 0 0 20px rgba(0,0,0,0.089);
-    padding: 10px;
-            
-}
-.child_profile_part1{
-    width:30vw;
-    height: 50h;
-}
-.profile_image{
+  .child_profile_part1 {
+    width: 30vw;
+    border-radius: 100%;
+  }
+  .profile_image {
     width: 100%;
-    height: 100%;
-    
-}
-.child_profile_part2{
+  }
+  .child_profile_part2 {
     height: auto;
-}
-.child_profile_part2_name{
+    width: 80vw;
+  }
+  .child_profile_part2_name {
     font-size: 1.4em;
-    font-family: 'Poppins', sans-serif;
-}
-.child_profile_part2_title{
+    font-family: "Poppins", sans-serif;
+  }
+  .child_profile_part2_title {
     font-size: 1em;
-    font-family: 'Poppins', sans-serif ;
+    font-family: "Poppins", sans-serif;
     font-weight: 900;
     color: #1c5847;
+  }
 
-}
-
-.profile_action{
+  .profile_action {
     background-color: #226d59;
     color: #ffffff;
     font-weight: 400;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     border-radius: 20px;
     padding: 4px 9px;
     border: none;
     cursor: pointer;
   }
-  .profile_action:focus{
+  .profile_action:focus {
     font-weight: 900;
-
   }
 
-.cp{
-   
-    width: 50%;
+  .cp {
+    width: 100%;
     flex-direction: column;
-   
-}
-.cp_1{
+  }
+  .cp_1 {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-}
+    align-items: center;
+    width: 90vw;
+  }
 
-.cp_2{
+  .cp_2 {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     margin-top: 40px;
-}
-.profile_details_block{
+    width: 90vw;
+  }
+  .profile_details_block {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     margin: 7px;
-}
-.profile_details_block label{
+  }
+  .profile_details_block label {
     font-size: 1em;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 900;
     color: #1c5847;
-
-}
-.profile_details_block p{
+  }
+  .profile_details_block p {
     font-size: 0.7em;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 800;
     margin-top: 4px;
-}
-.profile_logout_div{
-    margin: 5px ;
-}
-.profile_logout{
+  }
+  .profile_logout_div {
+    margin: 5px;
+  }
+  .profile_logout {
     background-color: #b91515;
-    
+
     padding: 4px 14px;
     color: #fff;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 1em;
     cursor: pointer;
     margin-top: 10px;
-}
-.modal{
+  }
+  .modal {
     position: fixed;
     top: 7vh;
     left: 5%;
-    width: 50%;
+    width: 91%;
     background-color: white;
     padding: 1rem;
     border-radius: 14px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
     z-index: 30;
     animation: slide-down 300ms ease-out forwards;
-}
-.backdrop {
+  }
+  .backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -131,21 +253,15 @@
     z-index: 20;
     background-color: rgba(0, 0, 0, 0.75);
   }
+}
 
-  @media (min-width: 768px) {
-    .modal {
-      width: 40rem;
-      left: calc(50% - 20rem);
-    }
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
   }
-  
-  @keyframes slide-down {
-    from {
-      opacity: 0;
-      transform: translateY(-3rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}

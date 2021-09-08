@@ -32,10 +32,10 @@ const ProfileComponent = () => {
             </div>
             <div className="cp">
               <div className="cp_1">
-                <div className="child_profile_part2">
-                  <p className="child_profile_part2_name">Nikhil Gupta</p>
-                  <p className="child_profile_part2_title">Student</p>
-                </div>
+                  <div className="child_profile_part2">
+                      <p className="child_profile_part2_name">Nikhil Gupta</p>
+                      <p className="child_profile_part2_title">Student</p>
+                  </div>
                 <div className="child_profile_part3">
                   <button
                     className="profile_action"
@@ -65,7 +65,7 @@ const ProfileComponent = () => {
                 </div>
                 <div className="profile_details_block">
                   <label>College</label>
-                  <p>Poornima Institue of Engineering and Technology</p>
+                  <p>PIET</p>
                 </div>
               </div>
               <div className="profile_logout_div">
