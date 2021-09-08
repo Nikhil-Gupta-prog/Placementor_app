@@ -55,22 +55,22 @@ const SignUpForm = () => {
       <div className="input_block">
         <label htmlFor="name">Name</label>
         <input type="text" id="name" ref={nameInputRef} />
-        {!formInputIsValid.name && <p>Enter a valid Name</p>}
+        {!formInputIsValid.name && <p className="SignUp_error_message">Enter a valid Name</p>}
       </div>
       <div className="input_block">
         <label htmlFor="number">Phone</label>
         <input type="text" id="number" ref={phoneInputRef} />
-        {!formInputIsValid.phone && <p>Enter a valid Conatct detail</p>}
+        {!formInputIsValid.phone && <p className="SignUp_error_message">Enter a valid Conatct detail</p>}
       </div>
       <div className="input_block">
         <label htmlFor="email">Email</label>
         <input type="email" id="email" ref={emailInputRef} />
-        {!formInputIsValid.email && <p>Enter a valid Email</p>}
+        {!formInputIsValid.email && <p className="SignUp_error_message">Enter a valid Email</p>}
       </div>
       <div className="input_block">
         <label htmlFor="password">Password</label>
         <input id="password" type="password" ref={passwordInputRef} />
-        {!formInputIsValid.password && <p>Enter Strong Password</p>}
+        {!formInputIsValid.password && <p className="SignUp_error_message">Enter Strong Password</p>}
       </div>
       <button className="action_button">Submit</button>
     </form>

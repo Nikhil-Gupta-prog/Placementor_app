@@ -1,24 +1,35 @@
+
+
+
 .parent_signUp {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #eeeeee;
 }
 .child_signUp {
   box-shadow: 0 2px 4px;
-  width: 60vw;
+  width: 70vw;
   height: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: #ffffff;
+  border-radius: 2em;
+
 }
 .child_signUp_part1 {
-  width: 24vw;
+  width: 50%;
   border-right: 1px solid #098131;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.child_signUp_part2{
+  width: 50%;
+
 }
 @media screen and (max-width: 490px) {
   .child_signUp_part1 {
@@ -31,6 +42,10 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+  }
+  .child_signUp_part2{
+    width: 99%;
+  
   }
 }
 
