@@ -78,7 +78,49 @@
   color: #fff;
   
 }
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 780px) {
+  .home {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items:center;
   
+  }
+.home_title_name {
+  font-size: 2.7em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  color: #216653;
+  letter-spacing: 1px;
+}
+.image_block{
+  width: 50vw;
+}
+.home_image{
+width: 100%;
+
+}
+}
+
+@media screen and (max-width: 450px) {
+  .home {
+    display: flex;
+    height: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+  
+  }
+  .home_title{
+    display: none;
+  }
+  
+  .image_block{
+    width: 100vw;
+  }
+  .home_image{
+  width: 100%;
+
+  }
   
 }
