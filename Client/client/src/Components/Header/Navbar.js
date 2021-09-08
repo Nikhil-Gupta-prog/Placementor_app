@@ -12,10 +12,10 @@ const Navbar = () => {
   return (
     <nav className="parent_nav">
       <div>
-        {" "}
+      
         <h1 className="nav_logo">PlaceMentor</h1>
       </div>
-      <div>
+      <div className="child_nav2">
         <ul
           className={
             navResponse ? "parent_nav_list_mobileview" : "parent_nav_list "

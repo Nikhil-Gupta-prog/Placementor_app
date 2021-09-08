@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
-  height: 10vh;
+  height: 60px;
   box-shadow: 0 2px 14px;
 }
 .parent_nav_list {
@@ -14,21 +14,24 @@
 .hamburger_icon {
   display: none;
 }
-
+.child_nav2{
+  margin-right: 2em;
+}
 ul li {
   list-style: none;
 }
 ul li a {
   margin: 10px;
-  font-size: 1em;
+  font-size: 1.1em;
   color: #2d866d;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   text-decoration: none;
 }
+
 .nav_logo {
-  margin: 4px 0 0 18px;
+  margin-left:3.7em;
   color: #2d866d;
   font-size: 1.4em;
   font-family: "Poppins", sans-serif;

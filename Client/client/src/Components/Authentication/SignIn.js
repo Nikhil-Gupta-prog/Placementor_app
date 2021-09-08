@@ -62,7 +62,7 @@ const SignIn = () => {
                 onChange={emailChangeHandler}
                 onBlur={emailInputBlurHandler}
               />
-              {emailInputIsInvalid && <p>Please enter your email</p>}
+              {emailInputIsInvalid && <p className="SignUp_error_message">Please enter your email</p>}
             </div>
             <div className="signIn_InputBlock">
               <label htmlFor="password">Passowrd</label>
@@ -73,7 +73,7 @@ const SignIn = () => {
                 onChange={passwordChangeHandler}
                 onBlur={passwordInputBlurHandler}
               />
-              {passwordInputIsInvalid && <p>Please enter your password</p>}
+              {passwordInputIsInvalid && <p className="SignUp_error_message">Please enter your password</p>}
             </div>
             <div className="signIn_action">
               <button>Login</button>
