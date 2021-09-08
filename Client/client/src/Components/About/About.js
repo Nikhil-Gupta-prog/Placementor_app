@@ -1,36 +1,32 @@
 import React from "react";
+import Card from "../../UI/Card";
 import "./About.css";
 
 const About = () => {
   return (
     <div className="about_parent">
-      <div className="about_child">
-        <p className="about_heading">About Us</p>
-        <hr/>
+            <div className="about_child1">
+              <p className="about_heading">About Us</p>
+            </div>
+      <div className="about_child2">
+        <Card title="Vision"
+        image="https://img.favpng.com/15/4/10/success-icon-creative-process-icon-achievement-icon-jKYJnyEP.jpg"
+        content= " Your career is about what you want to be and who you want to be. It’s about bringing your skills, your curiosity and your best true self to your work." />
+        <Card title="Aim"
+        image="https://img.favpng.com/15/4/10/success-icon-creative-process-icon-achievement-icon-jKYJnyEP.jpg"
+
+        content= " Your career is about what you want to be and who you want to be. It’s about bringing your skills, your curiosity and your best true self to your work." />
+        <Card title="Achieved"
+        image="https://img.favpng.com/15/4/10/success-icon-creative-process-icon-achievement-icon-jKYJnyEP.jpg"
+
+        content= " Your career is about what you want to be and who you want to be. It’s about bringing your skills, your curiosity and your best true self to your work." />
+        
+
       </div>
-      <div className="about_description">
-      <div className="about_description_part2">
-         <img src="https://us.123rf.com/450wm/zovicota/zovicota2101/zovicota210100002/161517706-interview-employment-process-candidate-selection-recruitment-and-placement-service-recruiting-agency.jpg?ver=6"  className="about_image"/>
-        </div>
-        <div className="about_description_part1">
-          <p className="about_desc_para1">
-            Placementor a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as opposed to using 'Content here, content
-            here', making it look like readable English. 
-          </p>
-          <p>
-            Placementor a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as opposed to using 'Content here, content
-            here', making it look like readable English. 
-          </p>
-        </div>
+     
        
       </div>
-    </div>
+    
   );
 };
 
