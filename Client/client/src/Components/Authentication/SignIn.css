@@ -1,135 +1,134 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,500;1,700;1,900&display=swap");
 
-.signIn_parent{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
+.signIn_parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
   background-color: #efefef;
-
 }
 
-.signIn_child{
-    width: 60vw;
+.signIn_child {
+  width: 60vw;
+  height: auto;
+  border: 1px solid #216e58;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  box-shadow: 0 2px 4px;
+  background-color: #ffffff;
+  border-radius: 0 20px 20px 0;
+}
+.signIn_child_part1 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(#008c8c4d, rgba(0, 140, 140, 0.3)),
+    url("https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+}
+.signIn_child_part1_heading_div {
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signIn_child_part1_heading {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+.signIn_child_part1_subheading {
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+.signIn_child_part2 {
+  width: 50%;
+}
+.signIn_heading {
+  font-size: 1.7em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  color: #216653;
+  margin: 0.7em;
+}
+
+.signIn_InputBlock {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20%;
+}
+.signIn_InputBlock label {
+  font-size: 1.3em;
+  color: #216653;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+.signIn_InputBlock input {
+  width: 80%;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+.signIn_action {
+  margin-bottom: 20px;
+  padding: 1em;
+  padding-left: 20%;
+}
+.signIn_action button {
+  width: 140px;
+  padding: 5px 7px;
+  background: transparent;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2em;
+  border: 1px solid #216e58;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 10px 12px #216653;
+}
+.signIn_action button:hover {
+  box-shadow: inset 400px 0 0 0 #216653;
+  color: #fff;
+}
+@media screen and (max-width: 770px) {
+    .signIn_child {
+      width: 90vw;
+      height: auto;
+    }
+}
+@media screen and (max-width: 430px) {
+  .signIn_child {
+    width: 90vw;
     height: auto;
-    border: 1px solid #216e58;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    box-shadow: 0 2px 4px;
-    background-color: #ffffff;
-    border-radius: 0 20px 20px 0;
-
-    
-}
-.signIn_child_part1{
-    width: 50%;
-   
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    background-image: linear-gradient(#008c8c4d,rgba(0,140,140, 0.3)), url("https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
-}
-.signIn_child_part1_heading_div{
-    border: 1px solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+  }
 
-.signIn_child_part1_heading{
-    font-size: 1.8em;
-    font-weight: 700;
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
-}
-.signIn_child_part1_subheading{
-    font-size: 0.8em;
-    font-weight: 400;
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
-}
-.signIn_child_part2{
-    width: 50%;
+  .signIn_child_part1 {
+    display: none;
+  }
 
-}
-.signIn_heading{
-    font-size: 1.7em;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    text-align: center;
-    color:#216653;
-    margin: 0.7em;
-}
-
-.signIn_InputBlock{
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    padding-left:20%;
-}
-.signIn_InputBlock label{
-    font-size: 1.3em;
-    color: #216653;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-
-}
-.signIn_InputBlock input{
-    width: 80%;
+  .signIn_child_part2 {
+    width: 99%;
+    height: auto;
+  }
+  .signIn_InputBlock {
+   padding-left: 1em;
+  }
+  .signIn_InputBlock input {
+    width: 100%;
     height: 30px;
     border: 1px solid #000;
     border-radius: 4px;
-}
-.signIn_action{
-    margin-bottom:20px;
-    padding: 1em;
-    padding-left:20%;
-
-}
-.signIn_action button{
-    width: 140px;
-    padding: 5px 7px;
-    background: transparent;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2em;
-    border: 1px solid #216e58;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 10px 12px #216653;
-    
-}
-.signIn_action button:hover{
-    box-shadow: inset 400px 0 0 0 #216653;
-    color: #fff;
+  }
 }
 
-@media screen and (max-width:430px){
-    .signIn_child{
-        width: 90vw;
-        height: auto;
-       
-        
-    }
-    .signIn_heading{
-        font-size: 1.4em;
-        font-family: 'Roboto', sans-serif;
-
-        font-weight: 400;
-        text-align: center;
-        color:#216653;
-        margin: 1em;
-    }
-    
-}
-
-@media screen and (max-width:770px){
-    .signIn_child{
-        width: 57vw;
-        height: auto;
-       
-        
-    }
-}

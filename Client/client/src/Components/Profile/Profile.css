@@ -6,12 +6,12 @@
   align-items: center;
   width: 100vw;
   height: auto;
-  background-color: #fff;
+  background-color: #eeeeee;
 }
 
 .child_profile {
-  width: 70vw;
-  height: 70vh;
+  width: 60vw;
+  height: auto;
   border: 1px solid #1c5847;
   display: flex;
   justify-content: space-between;
@@ -20,14 +20,17 @@
   background: #ffffff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.089);
   padding: 10px;
+  margin: 40px 0;
 }
 .child_profile_part1 {
   width: 30vw;
   height: 50h;
+  
 }
 .profile_image {
-  width: 100%;
-  height: 100%;
+  width: 67%;
+  height: 65%;
+
 }
 .child_profile_part2 {
   height: auto;
@@ -106,7 +109,7 @@
 .modal {
   position: fixed;
   top: 7vh;
-  left: 5%;
+  left: 25%;
   width: 50%;
   background-color: white;
   padding: 1rem;

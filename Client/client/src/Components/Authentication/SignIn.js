@@ -51,34 +51,34 @@ const SignIn = () => {
           <p className="signIn_child_part1_subheading">To keep connected with us please login with Us</p>
         </div>
         <div className="signIn_child_part2">
-          <form onSubmit={submitHandler}>
-            <p className="signIn_heading">Login Here</p>
-            <div className="signIn_InputBlock">
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                value={enteredEmail}
-                onChange={emailChangeHandler}
-                onBlur={emailInputBlurHandler}
-              />
-              {emailInputIsInvalid && <p className="SignUp_error_message">Please enter your email</p>}
-            </div>
-            <div className="signIn_InputBlock">
-              <label htmlFor="password">Passowrd</label>
-              <input
-                id="password"
-                type="password"
-                value={enteredPassword}
-                onChange={passwordChangeHandler}
-                onBlur={passwordInputBlurHandler}
-              />
-              {passwordInputIsInvalid && <p className="SignUp_error_message">Please enter your password</p>}
-            </div>
-            <div className="signIn_action">
-              <button>Login</button>
-            </div>
-          </form>
+              <form onSubmit={submitHandler}>
+                <p className="signIn_heading">Login Here</p>
+                <div className="signIn_InputBlock">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    id="email"
+                    type="email"
+                    value={enteredEmail}
+                    onChange={emailChangeHandler}
+                    onBlur={emailInputBlurHandler}
+                  />
+                  {emailInputIsInvalid && <p className="SignUp_error_message">Please enter your email</p>}
+                </div>
+                <div className="signIn_InputBlock">
+                  <label htmlFor="password">Passowrd</label>
+                  <input
+                    id="password"
+                    type="password"
+                    value={enteredPassword}
+                    onChange={passwordChangeHandler}
+                    onBlur={passwordInputBlurHandler}
+                  />
+                  {passwordInputIsInvalid && <p className="SignUp_error_message">Please enter your password</p>}
+                </div>
+                <div className="signIn_action">
+                  <button>Login</button>
+                </div>
+              </form>
         </div>
       </div>
     </div>
