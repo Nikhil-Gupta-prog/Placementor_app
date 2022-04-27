@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import "./Profile.css";
 import ProfileForm from "../../UI/profileForm";
+import { signout } from "../Authentication/helper/AuthRoutes";
+import { useHistory } from "react-router-dom";
+
 
 const ProfileComponent = () => {
+  const history = useHistory()
+
   const [showProfileModal, setShowProfileModal] = useState(false);
 
   const profileUpdateHandler = () => {
@@ -11,6 +16,12 @@ const ProfileComponent = () => {
   const HideProfileModal = () => {
     setShowProfileModal(false);
   };
+  const logout = () =>{
+  
+    signout()
+    history.push('/')
+
+  }
   return (
     <div>
       {showProfileModal && (
@@ -26,7 +37,7 @@ const ProfileComponent = () => {
             <div className="child_profile_part1">
               <img
                 src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGh1bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                alt="image"
+                alt="profile_pic"
                 className="profile_image"
               />
             </div>
@@ -69,7 +80,7 @@ const ProfileComponent = () => {
                 </div>
               </div>
               <div className="profile_logout_div">
-                <button className="profile_logout">Logout</button>
+                <button className="profile_logout" onClick={logout}>Logout</button>
               </div>
             </div>
           </div>

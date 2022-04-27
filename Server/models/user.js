@@ -10,6 +10,12 @@ const userSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    phone: {
+      type: Number,
+      required: true,
+      unique: true,
+      trim: true,
+    },
     email: {
       type: String,
       unique: true,
@@ -21,12 +27,7 @@ const userSchema = new mongoose.Schema(
       trim: true,
       required: true,
     },
-    phone: {
-      type: Number,
-      required: true,
-      unique: true,
-      trim: true,
-    },
+
     tokens: [
       {
         token: {
@@ -53,12 +54,13 @@ userSchema.methods.generateAuthToken = async function () {
   const token = jwt.sign({ _id: user._id.toString() }, "thisisasecreatekey");
   user.tokens = user.tokens.concat({ token });
   await user.save();
+
   return token;
 };
 
 //login functionality
 
-userSchema.statics.findByCredential = async  (email, password)=> {
+userSchema.statics.findByCredential = async (email, password) => {
   const user = await User.findOne({ email });
   if (!user) {
     throw new Error("Unable to login");

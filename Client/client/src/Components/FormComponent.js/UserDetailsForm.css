@@ -1,0 +1,48 @@
+.userDetailform_parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+
+  flex-direction: column;
+  background-color: #efefef;
+}
+.userDetailform_child {
+  border: 1px solid;
+  width: 70vw;
+  height: auto;
+  padding: 2em;
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 2em;
+  box-shadow: 0 2px 4px;
+}
+.userDetailform_input_block {
+  padding: 0.4em;
+  margin-left: 2em;
+  display: flex;
+  flex-direction: column;
+}
+.userDetailform_input_block label {
+  font-size: 1.3em;
+  color: #216653;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+.userDetailform_input_block input {
+  height: 27px;
+  width: 310px;
+}
+
+.userDetailform_input_block select{
+  height: 27px;
+  width: 310px;
+  
+}

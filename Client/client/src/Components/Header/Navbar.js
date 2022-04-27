@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons";
+import { isAutheticated } from "../Authentication/helper/AuthRoutes";
 
 const Navbar = () => {
   const [navResponse, setNavResponse] = useState(false);
@@ -12,7 +13,6 @@ const Navbar = () => {
   return (
     <nav className="parent_nav">
       <div>
-      
         <h1 className="nav_logo">PlaceMentor</h1>
       </div>
       <div className="child_nav2">
@@ -24,21 +24,25 @@ const Navbar = () => {
           <li>
             <Link to="/">Home</Link>
           </li>
-         
-          <li>
-            <Link to="/signup">Sign Up</Link>
-          </li>
-          <li>
-            <Link to="/signin">Sign In</Link>
-          </li>
 
-          <li>
-            <Link to="/form">Form</Link>
-          </li>
-         
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
+         { !isAutheticated() &&( <li>
+            <Link to="/signup">Sign Up</Link>
+          </li>)}
+          { !isAutheticated() &&( <li>
+            <Link to="/signin">Sign In</Link>
+          </li>)}
+
+          {isAutheticated() && (
+            <li>
+              <Link to="/form">Form</Link>
+            </li>
+          )}
+
+          {isAutheticated() && (
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+          )}
         </ul>
       </div>
       <div className="hamburger_icon" onClick={navToggleHandler}>

@@ -1,5 +1,4 @@
-
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,500;1,700;1,900&display=swap");
 
 .parent_signUp {
   width: 100vw;
@@ -18,7 +17,6 @@
   align-items: center;
   background-color: #ffffff;
   border-radius: 2em;
-
 }
 .child_signUp_part1 {
   width: 50%;
@@ -27,10 +25,70 @@
   justify-content: center;
   align-items: center;
 }
-.child_signUp_part2{
+.child_signUp_part2 {
   width: 50%;
-
 }
+
+.signUpForm_heading {
+  font-size: 1.5em;
+  font-family: "Roboto", sans-serif;
+
+  font-weight: 700;
+  margin: 0.7em;
+  color: #216653;
+  text-align: center;
+}
+
+.input_block {
+  padding: 0.4em;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2em;
+}
+.input_block label {
+  font-size: 1.3em;
+  color: #216653;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+.input_block input {
+  height: 30px;
+  width: 80%;
+}
+.action_button {
+  padding: 5px 17px;
+  background: transparent;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2em;
+  border: 1px solid #216e58;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 10px 12px #216653;
+  margin: 0.7em 0 1.7em 2em;
+}
+.action_button:hover {
+  box-shadow: inset 400px 0 0 0 #216653;
+  color: #fff;
+}
+
+.SignUp_error_message {
+  font-weight: 700;
+  color: #921b1b;
+  font-family: "Roboto", sans-serif;
+}
+
+.si{
+  margin-top: 1rem;
+    background-color: transparent;
+    color: #216653;
+    border: none;
+    padding: 0.15rem 2rem;
+    
+}
+.si:hover{
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 490px) {
   .child_signUp_part1 {
     display: none;
@@ -43,9 +101,8 @@
     justify-content: flex-start;
     align-items: center;
   }
-  .child_signUp_part2{
+  .child_signUp_part2 {
     width: 99%;
-  
   }
 }
 
@@ -60,5 +117,12 @@
   }
   .child_signUp_part1 {
     width: 40vw;
+  }
+  .signUpForm_heading {
+    font-size: 1.3em;
+  }
+
+  .signUpForm_heading {
+    margin-left: 40px;
   }
 }

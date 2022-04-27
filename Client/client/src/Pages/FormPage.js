@@ -1,9 +1,10 @@
 import React from 'react'
+import UserDetailsForm from '../Components/FormComponent.js/UserDetailsForm'
 
 const FormPage = () => {
     return (
         <div>
-            <h1>Form Page</h1>
+            <UserDetailsForm />
         </div>
     )
 }

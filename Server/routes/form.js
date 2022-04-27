@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/auth');
 
-router.post('/user/form',auth, async (req,res)=>{
+router.post('/user/form', async (req,res)=>{
     const form = new Form(req.body)
     try{
         await form.save();

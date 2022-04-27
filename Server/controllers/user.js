@@ -14,11 +14,10 @@ exports.createUser = async (req, res) => {
 
 exports.signIn = async (req, res) => {
   try {
-    debugger
-    
+    debugger;
+
     const user = await User.findByCredential(req.body.email, req.body.password);
     const token = await user.generateAuthToken();
-  
 
     res.send({ user, token });
   } catch (e) {
@@ -26,12 +25,11 @@ exports.signIn = async (req, res) => {
   }
 };
 
-exports.getAllUsers = async(req,res) =>{
+exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find({});
     res.send(users);
-    
   } catch (e) {
     res.status(500).send(e);
   }
-}
+};
