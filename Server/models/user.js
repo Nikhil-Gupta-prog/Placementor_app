@@ -42,8 +42,13 @@ const userSchema = new mongoose.Schema(
 //converting pass into hash
 userSchema.pre("save", async function (next) {
   const user = this;
-  if (!user.isModified("password")) {
-    user.password = await bcrypt.hash(user.password, 8);
+  if (user.isModified("password")) {
+    // user.password = await bcrypt.hash(user.password, 8);
+    var vl = await bcrypt.genSalt(10).then((salt) => {
+      return bcrypt.hash(user.password, salt);
+    });
+
+    user.password = vl;
   }
   next();
 });
@@ -62,10 +67,13 @@ userSchema.methods.generateAuthToken = async function () {
 
 userSchema.statics.findByCredential = async (email, password) => {
   const user = await User.findOne({ email });
+
   if (!user) {
     throw new Error("Unable to login");
   }
-  const isMatch = bcrypt.compare(password, user.password);
+  console.log(user.password);
+  const isMatch = await bcrypt.compare(password, user.password);
+
   if (!isMatch) {
     throw new Error("Unable to login");
   }

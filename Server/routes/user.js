@@ -9,15 +9,16 @@ router.post("/signin", signIn);
 
 debugger;
 
-router.post("/user/logout", auth, async (req, res) => {
+router.get("/user/logout", async (req, res) => {
   try {
-    req.user.tokens = req.user.tokens.filter((token) => {
-      return token.token !== req.token;
-    });
-
-    await req.user.save();
-    res.send();
+    // req.user.tokens = req.user.tokens.filter((token) => {
+    //   return token.token !== req.token;
+    // });
+    // // console.log(req.user);
+    //  await req.user.save();
+    res.send("done");
   } catch (e) {
+    console.log("500 internal weeooe");
     res.status(500).send(e);
   }
 });

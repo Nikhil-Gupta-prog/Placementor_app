@@ -5,8 +5,12 @@ import { signout } from "../Authentication/helper/AuthRoutes";
 import { useHistory } from "react-router-dom";
 
 
-const ProfileComponent = () => {
+const ProfileComponent = (props) => {
+
+let userd= JSON.parse(localStorage['profileData'])['user'];
+
   const history = useHistory()
+  console.log(props);
 
   const [showProfileModal, setShowProfileModal] = useState(false);
 
@@ -22,6 +26,7 @@ const ProfileComponent = () => {
     history.push('/')
 
   }
+  
   return (
     <div>
       {showProfileModal && (
@@ -36,7 +41,7 @@ const ProfileComponent = () => {
           <div className="child_profile">
             <div className="child_profile_part1">
               <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGh1bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
                 alt="profile_pic"
                 className="profile_image"
               />
@@ -44,10 +49,10 @@ const ProfileComponent = () => {
             <div className="cp">
               <div className="cp_1">
                   <div className="child_profile_part2">
-                      <p className="child_profile_part2_name">Nikhil Gupta</p>
+                      <p className="child_profile_part2_name">{userd.name}</p>
                       <p className="child_profile_part2_title">Student</p>
                   </div>
-                <div className="child_profile_part3">
+                {/* <div className="child_profile_part3">
                   <button
                     className="profile_action"
                     onClick={profileUpdateHandler}
@@ -55,29 +60,26 @@ const ProfileComponent = () => {
                   >
                     Edit Profile
                   </button>
-                </div>
+                </div> */}
               </div>
               <div className="cp_2">
                 <div className="profile_details_block">
                   <label>User Id:</label>
-                  <p>USERID1234</p>
+                  <p>{userd._id}</p>
                 </div>
                 <div className="profile_details_block">
                   <label>Name</label>
-                  <p>Nikhil Gupta</p>
+                  <p>{userd.name}</p>
                 </div>
                 <div className="profile_details_block">
                   <label>Contact:</label>
-                  <p>+91 9998889990</p>
+                  <p>{userd.phone}</p>
                 </div>
                 <div className="profile_details_block">
                   <label>Email Id:</label>
-                  <p>nikhilgupta122000@gmail.com</p>
+                  <p>{userd.email}</p>
                 </div>
-                <div className="profile_details_block">
-                  <label>College</label>
-                  <p>PIET</p>
-                </div>
+                
               </div>
               <div className="profile_logout_div">
                 <button className="profile_logout" onClick={logout}>Logout</button>

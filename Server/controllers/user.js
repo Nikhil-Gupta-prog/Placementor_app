@@ -14,14 +14,13 @@ exports.createUser = async (req, res) => {
 
 exports.signIn = async (req, res) => {
   try {
-    debugger;
-
     const user = await User.findByCredential(req.body.email, req.body.password);
+
     const token = await user.generateAuthToken();
 
     res.send({ user, token });
   } catch (e) {
-    res.send(e);
+    res.status(400).send("You have entered an invalid username or password");
   }
 };
 

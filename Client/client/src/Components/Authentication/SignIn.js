@@ -5,8 +5,11 @@ import { useCookies } from "react-cookie";
 import { authenticate } from "./helper/AuthRoutes";
 import { Link, useHistory } from "react-router-dom";
 
+
 const SignIn = () => {
   const [didRedirect, setDidRedirect] = useState(false);
+  const [error, setError] = useState(false);
+
   const [cookies, setCookie] = useCookies(["access_token", "refresh_token"]);
   const history = useHistory()
 
@@ -50,8 +53,12 @@ const SignIn = () => {
         password: enteredPassword,
       })
       .then((res) => {
-        console.log("??????", res.data.token);
-        authenticate(res.data.token, () => {
+        setError(false);
+        
+        // console.log("??????", res.data);
+        // const {user} = res.data
+        // console.log(user._id,user.name,user.email,user.phone);
+        authenticate(res.data, () => {
           setDidRedirect(true);
           
         });
@@ -67,9 +74,11 @@ const SignIn = () => {
       })
       .catch((err) => {
         console.log("SignIn Request Fail");
+        setError(true);
+
       });
 
-    console.log(enteredEmail, enteredPassword);
+    
     setEnteredEmail("");
     setEnteredPassword("");
     setEnterEmailIsTouched(false);
@@ -80,6 +89,10 @@ const SignIn = () => {
  
   return (
     <div className="signIn_parent">
+      <div className="signin_error" style={{ display: error ? "" : "none" }}>
+       {error ? <p>Login Failed</p> : null}
+
+      </div>
       <div className="signIn_child">
         <div className="signIn_child_part1">
           <p className="signIn_child_part1_heading"> WELCOME BACK!</p>

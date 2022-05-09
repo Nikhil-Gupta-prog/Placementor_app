@@ -7,6 +7,21 @@
   height: 100vh;
   width: 100vw;
   background-color: #efefef;
+  flex-direction: column;
+}
+.signin_error{
+  width: 40vw;
+  height: 40px;
+  border: 1px solid;
+  margin-bottom: 1em;
+  color: #fff;
+  background-color: #921b1b;
+  border-radius: 1em;
+  font-size: 1.4em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .signIn_child {

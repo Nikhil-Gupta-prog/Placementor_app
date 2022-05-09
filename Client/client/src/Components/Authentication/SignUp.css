@@ -7,6 +7,21 @@
   justify-content: center;
   align-items: center;
   background-color: #eeeeee;
+  flex-direction: column;
+}
+.signup_error{
+  width: 40vw;
+  height: 40px;
+  border: 1px solid;
+  margin-bottom: 1em;
+  color: #fff;
+  background-color: #921b1b;
+  border-radius: 1em;
+  font-size: 1.4em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .child_signUp {
   box-shadow: 0 2px 4px;
@@ -88,6 +103,14 @@
 .si:hover{
   text-decoration: underline;
 }
+.googleSign{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  
+}
+
 
 @media screen and (max-width: 490px) {
   .child_signUp_part1 {

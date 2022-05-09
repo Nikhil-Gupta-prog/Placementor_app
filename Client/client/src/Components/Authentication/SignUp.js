@@ -3,16 +3,22 @@ import Image from "../../Assests/SignUp_image.svg";
 import axios from "axios";
 import "./SignUp.css";
 import { Link, useHistory } from "react-router-dom";
+
 const isEmpty = (value) => value.trim() === "";
 
 const SignUp = () => {
-  const history = useHistory()
+
+  const [error, setError] = useState(false);
+
+  const history = useHistory();
   const [formInputIsValid, setFormInputIsValid] = useState({
     name: true,
     email: true,
     phone: true,
     password: true,
   });
+
+ 
 
   const nameInputRef = useRef();
   const emailInputRef = useRef();
@@ -64,15 +70,24 @@ const SignUp = () => {
       })
       .then((res) => {
         console.log(res.data);
-        history.push('/signin')
+        history.push("/signin");
+        setError(false);
       })
       .catch((err) => {
         console.log(err);
+        console.log("Signup Failed");
+        setError(true);
       });
   };
   return (
+
     <div className="parent_signUp">
+      <div className="signup_error" style={{ display: error ? "" : "none" }}>
+       {error ? <p>Signup Failed</p> : null}
+
+      </div>
       <div className="child_signUp">
+
         <div className="child_signUp_part1">
           <img src={Image} />
         </div>
@@ -92,7 +107,7 @@ const SignUp = () => {
               <input type="text" id="number" ref={phoneInputRef} on />
               {!formInputIsValid.phone && (
                 <p className="SignUp_error_message">
-                  Enter a valid Conatct detail
+                  Enter a valid Contact detail
                 </p>
               )}
             </div>
@@ -112,8 +127,13 @@ const SignUp = () => {
             </div>
             <button className="action_button">Submit</button>
           </form>
-          <Link to="/signin" className="si">Log in with existing account!</Link>
+        
+          <Link to="/signin" className="si">
+            Log in with existing account!
+          </Link>
         </div>
+       
+       
       </div>
     </div>
   );
