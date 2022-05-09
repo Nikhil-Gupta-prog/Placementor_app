@@ -54,13 +54,7 @@ const SignUp = () => {
     if (!formIsValid) {
       return;
     }
-    console.log({
-      name: enteredName,
-      email: enteredEmail,
-      password: enteredPassword,
-      phone: enteredPhone,
-    });
-
+   
     axios
       .post("http://localhost:8000/api/signup", {
         name: enteredName,
@@ -69,7 +63,7 @@ const SignUp = () => {
         phone: enteredPhone,
       })
       .then((res) => {
-        console.log(res.data);
+        
         history.push("/signin");
         setError(false);
       })

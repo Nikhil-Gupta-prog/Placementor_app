@@ -1,12 +1,15 @@
 const User = require("../models/user");
+const {sendMail} = require("../email");
 
 exports.createUser = async (req, res) => {
   const user = new User(req.body);
   try {
     await user.save();
     const token = await user.generateAuthToken();
-
+    
     res.status(201).send({ user, token });
+    
+    await sendMail(user.name, user.email);
   } catch (e) {
     res.status(400).send(e);
   }
