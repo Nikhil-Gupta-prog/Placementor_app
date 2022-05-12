@@ -127,6 +127,9 @@
   .child_signUp_part2 {
     width: 99%;
   }
+  .si{
+    padding: 0.15rem 2rem;
+  }
 }
 
 @media screen and (max-width: 778px) {

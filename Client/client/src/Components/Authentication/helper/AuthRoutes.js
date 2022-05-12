@@ -22,6 +22,9 @@ export const authenticate = (data, next) => {
 export const signout = (next) => {
   if (typeof window !== "undefined") {
     localStorage.removeItem("jwt");
+    localStorage.removeItem("profileData");
+    
+
 
     axios
       .get(`http://localhost:8000/api/user/logout`)

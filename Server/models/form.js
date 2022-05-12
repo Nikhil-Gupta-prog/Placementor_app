@@ -87,7 +87,7 @@ const formSchema = new mongoose.Schema({
         trim:true
     },
     additional_skills:{
-       type:Array,
+       type:String,
        trim:true 
     }
 

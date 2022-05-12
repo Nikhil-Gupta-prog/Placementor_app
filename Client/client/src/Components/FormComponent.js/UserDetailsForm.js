@@ -2,11 +2,15 @@ import React, { useRef, useState } from "react";
 // import "../../UI/SignUpForm.css";
 import "./UserDetailsForm.css";
 import axios from "axios";
+import Popup from "../../UI/Popup";
+import congo_gif from "../../Assests/congo_gif.gif"
 
 
 const isEmpty = (value) => value.trim() === "";
 
 const UserDetailsForm = () => {
+  const [formD,setFormD] = useState("");
+ const [resultValidation, setResultValidation] = useState(true)
   const [formInputIsValid, setFormInputIsValid] = useState({
     name: true,
     stream: true,
@@ -108,27 +112,10 @@ const UserDetailsForm = () => {
     if (!formIsValid) {
       return;
     }
-    console.log({
-      enteredName,
-      enteredStream,
-      enteredDegree,
-      enteredBacklog,
-      enteredAggregate,
-      enteredHigherSecondary,
-      enteredSecondary,
-      enteredYear,
-      enteredAdditionalSkills,
-      enteredSem1,
-      enteredSem2,
-      enteredSem3,
-      enteredSem4,
-      enteredSem5,
-      enteredSem6,
-      enteredSem7,
-      enteredSem8,
-      enteredGender,
-      enteredMedium,
-    });
+    setResultValidation(false)
+
+    
+
 
     axios
     .post("http://localhost:8000/api/user/form", {
@@ -153,7 +140,12 @@ const UserDetailsForm = () => {
       additional_skills:enteredAdditionalSkills
     })
     .then((res) => {
-      console.log(res.data);
+    
+      // localStorage.removeItem("formResult");
+      // localStorage.setItem("formResult", ""); 
+      // localStorage.setItem("formResult", JSON.stringify(res));
+      setFormD(res);
+
       
     })
     .catch((err) => {
@@ -183,8 +175,8 @@ const UserDetailsForm = () => {
 
   return (
     <div className="userDetailform_parent">
-      <p className="signUpForm_heading">Student Form</p>
-
+     { resultValidation ? <p className="signUpForm_heading">Student Form</p>:null}
+    {resultValidation ?  ( 
       <form onSubmit={submitHandler} className="userDetailform_child">
         <div className="userDetailform_input_block">
           <label htmlFor="name">Name</label>
@@ -195,7 +187,11 @@ const UserDetailsForm = () => {
         </div>
         <div className="userDetailform_input_block">
           <label htmlFor="degree">Degree</label>
-          <input type="text" id="degree" ref={degreeInputRef} />
+          
+          <select name="degree" id="degree" ref={degreeInputRef}>
+            <option>B.Tech</option>
+            <option>M.Tech</option>
+          </select>
           {!formInputIsValid.degree && (
             <p className="SignUp_error_message">Enter a valid data</p>
           )}
@@ -208,25 +204,26 @@ const UserDetailsForm = () => {
           )}
         </div>
         <div className="userDetailform_input_block">
-          <label htmlFor="secondary">Secondary(%)</label>
+          <label htmlFor="secondary">Secondary(CGPA)</label>
           <input
             type="number"
             id="secondary"
             min={0}
-            max={100}
+            max={10}
             ref={secondaryInputRef}
+          
           />
           {!formInputIsValid.secondary && (
             <p className="SignUp_error_message">Enter a valid data</p>
           )}
         </div>
         <div className="userDetailform_input_block">
-          <label htmlFor="higher_secondary">Higher_secondary(%)</label>
+          <label htmlFor="higher_secondary">Higher_secondary(CGPA)</label>
           <input
             type="number"
             id="higher_secondary"
             min={0}
-            max={100}
+            max={10}
             ref={higher_secondaryInputRef}
           />
           {!formInputIsValid.higher_secondary && (
@@ -256,11 +253,11 @@ const UserDetailsForm = () => {
           )}
         </div>
         <div className="userDetailform_input_block">
-          <label htmlFor="aggregate">Aggregate(%)</label>
+          <label htmlFor="aggregate">Aggregate(CGPA)</label>
           <input
             type="number"
             min={0}
-            max={100}
+            max={10}
             id="aggregate"
             ref={aggregateInputRef}
           />
@@ -269,43 +266,43 @@ const UserDetailsForm = () => {
           )}
         </div>
         <div className="userDetailform_input_block">
-          <label htmlFor="sem1">Sem1(%)</label>
-          <input type="number" min={0} max={100} id="sem1" ref={sem1InputRef} />
+          <label htmlFor="sem1">Sem1(CGPA)</label>
+          <input type="number" min={0} max={10} id="sem1" ref={sem1InputRef} />
        
         </div>
         <div className="userDetailform_input_block">
-          <label htmlFor="sem2">Sem2(%)</label>
-          <input type="number" min={0} max={100} id="sem2" ref={sem2InputRef} />
+          <label htmlFor="sem2">Sem2(CGPA)</label>
+          <input type="number" min={0} max={10} id="sem2" ref={sem2InputRef} />
           
         </div>
         <div className="userDetailform_input_block">
-          <label htmlFor="sem3">Sem3(%)</label>
-          <input type="number" min={0} max={100} id="sem3" ref={sem3InputRef} />
+          <label htmlFor="sem3">Sem3(CGPA)</label>
+          <input type="number" min={0} max={10} id="sem3" ref={sem3InputRef} />
          
         </div>
         <div className="userDetailform_input_block">
-          <label htmlFor="sem4">Sem4(%)</label>
-          <input type="number" min={0} max={100} id="sem4" ref={sem4InputRef} />
+          <label htmlFor="sem4">Sem4(CGPA)</label>
+          <input type="number" min={0} max={10} id="sem4" ref={sem4InputRef} />
         
         </div>
         <div className="userDetailform_input_block">
-          <label htmlFor="sem5">Sem5(%)</label>
-          <input type="number" min={0} max={100} id="sem5" ref={sem5InputRef} />
+          <label htmlFor="sem5">Sem5(CGPA)</label>
+          <input type="number" min={0} max={10} id="sem5" ref={sem5InputRef} />
          
         </div>
         <div className="userDetailform_input_block">
-          <label htmlFor="sem6">Sem6(%)</label>
-          <input type="number" min={0} max={100} id="sem6" ref={sem6InputRef} />
+          <label htmlFor="sem6">Sem6(CGPA)</label>
+          <input type="number" min={0} max={10} id="sem6" ref={sem6InputRef} />
          
         </div>
         <div className="userDetailform_input_block">
-          <label htmlFor="sem7">Sem7(%)</label>
-          <input type="number" min={0} max={100} id="sem7" ref={sem7InputRef} />
+          <label htmlFor="sem7">Sem7(CGPA)</label>
+          <input type="number" min={0} max={10} id="sem7" ref={sem7InputRef} />
           
         </div>
         <div className="userDetailform_input_block">
-          <label htmlFor="sem8">Sem8(%)</label>
-          <input type="number" min={0} max={100} id="sem8" ref={sem8InputRef} />
+          <label htmlFor="sem8">Sem8(CGPA)</label>
+          <input type="number" min={0} max={10} id="sem8" ref={sem8InputRef} />
           
         </div>
         <div className="userDetailform_input_block">
@@ -326,7 +323,15 @@ const UserDetailsForm = () => {
         </div>
 
         <button className="action_button">Submit</button>
-      </form>
+      </form>): 
+      <div className="pop">
+        <p className="pop_head">Congratulations!</p>
+        <img className="pop_image" src={congo_gif} />
+        <p className="pop_tagline"> It seems you have got quite a potential and you have chances in following Companies:- </p>
+      <Popup formD={formD} />
+
+      </div>
+      }
     </div>
   );
 };
