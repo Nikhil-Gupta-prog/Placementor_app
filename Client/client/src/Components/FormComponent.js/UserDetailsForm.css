@@ -79,6 +79,11 @@
   font-weight: bold;
  font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.fspinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @media screen and (max-width: 490px) {
   .userDetailform_parent {

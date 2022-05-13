@@ -3,14 +3,16 @@ import React, { useRef, useState } from "react";
 import "./UserDetailsForm.css";
 import axios from "axios";
 import Popup from "../../UI/Popup";
-import congo_gif from "../../Assests/congo_gif.gif"
-
+import congo_gif from "../../Assests/congo_gif.gif";
+import LoadingSpinner from "../../UI/LoadingSpinner";
 
 const isEmpty = (value) => value.trim() === "";
 
+
 const UserDetailsForm = () => {
-  const [formD,setFormD] = useState("");
- const [resultValidation, setResultValidation] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
+  const [formD, setFormD] = useState("");
+  const [resultValidation, setResultValidation] = useState(true);
   const [formInputIsValid, setFormInputIsValid] = useState({
     name: true,
     stream: true,
@@ -112,47 +114,41 @@ const UserDetailsForm = () => {
     if (!formIsValid) {
       return;
     }
-    setResultValidation(false)
-
-    
-
+    setResultValidation(false);
 
     axios
-    .post("http://localhost:8000/api/user/form", {
-      name: enteredName,
-      degree:enteredDegree,
-      stream:enteredStream,
-      secondary:enteredSecondary,
-      higher_secondary:enteredHigherSecondary,
-      year: enteredYear,
-      aggregate:enteredAggregate,
-      backlog:enteredBacklog,
-      medium:enteredMedium,
-      sem1:enteredSem1,
-      sem2:enteredSem2,
-      sem3:enteredSem3,
-      sem4:enteredSem4,
-      sem5:enteredSem5,
-      sem6:enteredSem6,
-      sem7:enteredSem7,
-      sem8:enteredSem8,
-      gender:enteredGender,
-      additional_skills:enteredAdditionalSkills
-    })
-    .then((res) => {
-    
-      // localStorage.removeItem("formResult");
-      // localStorage.setItem("formResult", ""); 
-      // localStorage.setItem("formResult", JSON.stringify(res));
-      setFormD(res);
-
-      
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
-
+      .post("http://localhost:8000/api/user/form", {
+        name: enteredName,
+        degree: enteredDegree,
+        stream: enteredStream,
+        secondary: enteredSecondary,
+        higher_secondary: enteredHigherSecondary,
+        year: enteredYear,
+        aggregate: enteredAggregate,
+        backlog: enteredBacklog,
+        medium: enteredMedium,
+        sem1: enteredSem1,
+        sem2: enteredSem2,
+        sem3: enteredSem3,
+        sem4: enteredSem4,
+        sem5: enteredSem5,
+        sem6: enteredSem6,
+        sem7: enteredSem7,
+        sem8: enteredSem8,
+        gender: enteredGender,
+        additional_skills: enteredAdditionalSkills,
+      })
+      .then((res) => {
+        // localStorage.removeItem("formResult");
+        // localStorage.setItem("formResult", "");
+        // localStorage.setItem("formResult", JSON.stringify(res));
+        setFormD(res);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
 
     nameInputRef.current.value = "";
     degreeInputRef.current.value = "";
@@ -173,165 +169,216 @@ const UserDetailsForm = () => {
     sem8InputRef.current.value = "";
   };
 
+  
+
   return (
     <div className="userDetailform_parent">
-     { resultValidation ? <p className="signUpForm_heading">Student Form</p>:null}
-    {resultValidation ?  ( 
-      <form onSubmit={submitHandler} className="userDetailform_child">
-        <div className="userDetailform_input_block">
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" ref={nameInputRef} />
-          {!formInputIsValid.name && (
-            <p className="SignUp_error_message">Enter a valid Name</p>
-          )}
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="degree">Degree</label>
-          
-          <select name="degree" id="degree" ref={degreeInputRef}>
-            <option>B.Tech</option>
-            <option>M.Tech</option>
-          </select>
-          {!formInputIsValid.degree && (
-            <p className="SignUp_error_message">Enter a valid data</p>
-          )}
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="stream">Branch</label>
-          <input type="text" id="stream" ref={streamInputRef} />
-          {!formInputIsValid.stream && (
-            <p className="SignUp_error_message">Enter a valid stream</p>
-          )}
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="secondary">Secondary(CGPA)</label>
-          <input
-            type="number"
-            id="secondary"
-            min={0}
-            max={10}
-            ref={secondaryInputRef}
-          
-          />
-          {!formInputIsValid.secondary && (
-            <p className="SignUp_error_message">Enter a valid data</p>
-          )}
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="higher_secondary">Higher_secondary(CGPA)</label>
-          <input
-            type="number"
-            id="higher_secondary"
-            min={0}
-            max={10}
-            ref={higher_secondaryInputRef}
-          />
-          {!formInputIsValid.higher_secondary && (
-            <p className="SignUp_error_message">Enter a valid data</p>
-          )}
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="med">Medium</label>
-          <select name="medium" id="med" ref={mediumSelectRef}>
-            <option>Hindi</option>
-            <option>English</option>
-          </select>
-        </div>
+      {resultValidation ? (
+        <p className="signUpForm_heading">Student Form</p>
+      ) : null}
+      {resultValidation ? (
+        <form onSubmit={submitHandler} className="userDetailform_child">
+          <div className="userDetailform_input_block">
+            <label htmlFor="name">Name</label>
+            <input type="text" id="name" ref={nameInputRef} />
+            {!formInputIsValid.name && (
+              <p className="SignUp_error_message">Enter a valid Name</p>
+            )}
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="degree">Degree</label>
 
-        <div className="userDetailform_input_block">
-          <label htmlFor="year">Year</label>
-          <input type="number" id="year" ref={yearInputRef} />
-          {!formInputIsValid.year && (
-            <p className="SignUp_error_message">Enter a valid data</p>
-          )}
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="backlog">Backlog</label>
-          <input type="number" min={0} id="backog" ref={backlogInputRef} />
-          {!formInputIsValid.backlog && (
-            <p className="SignUp_error_message">Enter a valid data</p>
-          )}
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="aggregate">Aggregate(CGPA)</label>
-          <input
-            type="number"
-            min={0}
-            max={10}
-            id="aggregate"
-            ref={aggregateInputRef}
-          />
-          {!formInputIsValid.aggregate && (
-            <p className="SignUp_error_message">Enter a valid data</p>
-          )}
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="sem1">Sem1(CGPA)</label>
-          <input type="number" min={0} max={10} id="sem1" ref={sem1InputRef} />
-       
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="sem2">Sem2(CGPA)</label>
-          <input type="number" min={0} max={10} id="sem2" ref={sem2InputRef} />
-          
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="sem3">Sem3(CGPA)</label>
-          <input type="number" min={0} max={10} id="sem3" ref={sem3InputRef} />
-         
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="sem4">Sem4(CGPA)</label>
-          <input type="number" min={0} max={10} id="sem4" ref={sem4InputRef} />
-        
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="sem5">Sem5(CGPA)</label>
-          <input type="number" min={0} max={10} id="sem5" ref={sem5InputRef} />
-         
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="sem6">Sem6(CGPA)</label>
-          <input type="number" min={0} max={10} id="sem6" ref={sem6InputRef} />
-         
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="sem7">Sem7(CGPA)</label>
-          <input type="number" min={0} max={10} id="sem7" ref={sem7InputRef} />
-          
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="sem8">Sem8(CGPA)</label>
-          <input type="number" min={0} max={10} id="sem8" ref={sem8InputRef} />
-          
-        </div>
-        <div className="userDetailform_input_block">
-          <label htmlFor="skills">Add. Skills</label>
-          <input type="textarea" id="skills" ref={additional_skillsInputRef} />
-          {!formInputIsValid.additional_skills && (
-            <p className="SignUp_error_message">Enter a valid data</p>
-          )}
-        </div>
+            <select name="degree" id="degree" ref={degreeInputRef}>
+              <option>B.Tech</option>
+              <option>M.Tech</option>
+            </select>
+            {!formInputIsValid.degree && (
+              <p className="SignUp_error_message">Enter a valid data</p>
+            )}
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="stream">Branch</label>
+            <input type="text" id="stream" ref={streamInputRef} />
+            {!formInputIsValid.stream && (
+              <p className="SignUp_error_message">Enter a valid stream</p>
+            )}
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="secondary">Secondary(CGPA)</label>
+            <input
+              type="number"
+              id="secondary"
+              min={0}
+              max={10}
+              ref={secondaryInputRef}
+            />
+            {!formInputIsValid.secondary && (
+              <p className="SignUp_error_message">Enter a valid data</p>
+            )}
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="higher_secondary">Higher_secondary(CGPA)</label>
+            <input
+              type="number"
+              id="higher_secondary"
+              min={0}
+              max={10}
+              ref={higher_secondaryInputRef}
+            />
+            {!formInputIsValid.higher_secondary && (
+              <p className="SignUp_error_message">Enter a valid data</p>
+            )}
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="med">Medium</label>
+            <select name="medium" id="med" ref={mediumSelectRef}>
+              <option>Hindi</option>
+              <option>English</option>
+            </select>
+          </div>
 
-        <div className="userDetailform_input_block">
-          <label htmlFor="gend">Gender</label>
-          <select name="gender" id="gend" ref={genderSelectRef}>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
+          <div className="userDetailform_input_block">
+            <label htmlFor="year">Year</label>
+            <input type="number" id="year" ref={yearInputRef} />
+            {!formInputIsValid.year && (
+              <p className="SignUp_error_message">Enter a valid data</p>
+            )}
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="backlog">Backlog</label>
+            <input type="number" min={0} id="backog" ref={backlogInputRef} />
+            {!formInputIsValid.backlog && (
+              <p className="SignUp_error_message">Enter a valid data</p>
+            )}
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="aggregate">Aggregate(CGPA)</label>
+            <input
+              type="number"
+              min={0}
+              max={10}
+              id="aggregate"
+              ref={aggregateInputRef}
+            />
+            {!formInputIsValid.aggregate && (
+              <p className="SignUp_error_message">Enter a valid data</p>
+            )}
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="sem1">Sem1(CGPA)</label>
+            <input
+              type="number"
+              min={0}
+              max={10}
+              id="sem1"
+              ref={sem1InputRef}
+            />
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="sem2">Sem2(CGPA)</label>
+            <input
+              type="number"
+              min={0}
+              max={10}
+              id="sem2"
+              ref={sem2InputRef}
+            />
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="sem3">Sem3(CGPA)</label>
+            <input
+              type="number"
+              min={0}
+              max={10}
+              id="sem3"
+              ref={sem3InputRef}
+            />
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="sem4">Sem4(CGPA)</label>
+            <input
+              type="number"
+              min={0}
+              max={10}
+              id="sem4"
+              ref={sem4InputRef}
+            />
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="sem5">Sem5(CGPA)</label>
+            <input
+              type="number"
+              min={0}
+              max={10}
+              id="sem5"
+              ref={sem5InputRef}
+            />
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="sem6">Sem6(CGPA)</label>
+            <input
+              type="number"
+              min={0}
+              max={10}
+              id="sem6"
+              ref={sem6InputRef}
+            />
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="sem7">Sem7(CGPA)</label>
+            <input
+              type="number"
+              min={0}
+              max={10}
+              id="sem7"
+              ref={sem7InputRef}
+            />
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="sem8">Sem8(CGPA)</label>
+            <input
+              type="number"
+              min={0}
+              max={10}
+              id="sem8"
+              ref={sem8InputRef}
+            />
+          </div>
+          <div className="userDetailform_input_block">
+            <label htmlFor="skills">Add. Skills</label>
+            <input
+              type="textarea"
+              id="skills"
+              ref={additional_skillsInputRef}
+            />
+            {!formInputIsValid.additional_skills && (
+              <p className="SignUp_error_message">Enter a valid data</p>
+            )}
+          </div>
+
+          <div className="userDetailform_input_block">
+            <label htmlFor="gend">Gender</label>
+            <select name="gender" id="gend" ref={genderSelectRef}>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <button className="action_button">Submit</button>
+        </form>
+      ) : (
+        <div className="pop">
+          <p className="pop_head">Congratulations!</p>
+          <img className="pop_image" src={congo_gif} />
+          <p className="pop_tagline">
+            {" "}
+            It seems you have got quite a potential and you have chances in
+            following Companies:-{" "}
+          </p>
+         {isLoading ?  <LoadingSpinner />:<Popup formD={formD} />}
         </div>
-
-        <button className="action_button">Submit</button>
-      </form>): 
-      <div className="pop">
-        <p className="pop_head">Congratulations!</p>
-        <img className="pop_image" src={congo_gif} />
-        <p className="pop_tagline"> It seems you have got quite a potential and you have chances in following Companies:- </p>
-      <Popup formD={formD} />
-
-      </div>
-      }
+      )}
     </div>
   );
 };
