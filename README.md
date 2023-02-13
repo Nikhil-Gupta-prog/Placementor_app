@@ -1,2 +1,1 @@
-# Placementor_app
-[website]: https://placementor.netlify.app/
+https://placementor.netlify.app/
